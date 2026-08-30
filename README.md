@@ -2,7 +2,7 @@
 
 ## Sumário
 
-1. [Sobre](#1---sobre-o-projeto-dia-d-simulation-platform)
+1. [Sobre](#1---sobre)
 2. [Repositórios](#2---repositórios)
 3. [O que este produto resolve?](#3---o-que-este-produto-resolve)
 4. [Exemplo prático](#4---exemplo-prático)
