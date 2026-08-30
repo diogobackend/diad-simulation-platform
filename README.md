@@ -74,7 +74,6 @@ Provas institucionais
 
 | Repositório | Responsabilidade |
 |---|---|
-| `diad-simulation-platform` | Documentação central, arquitetura, roadmap e visão geral |
 | `diad-auth-service` | Login, autenticação, JWT, refresh token, roles e permissões |
 | `diad-api-gateway` | Entrada única, roteamento, segurança e filtros técnicos |
 | `diad-candidate-service` | Cadastro, perfil e dados do candidato |
