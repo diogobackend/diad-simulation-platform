@@ -135,34 +135,7 @@ A entrada externa da plataforma será centralizada no API Gateway.
 
 Os microservices permanecem isolados atrás dessa fronteira.
 
-```text
-┌─────────────────┐
-│    diad-web     │
-│   React / TS    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│   API Gateway   │
-└────────┬────────┘
-         │
-         ▼
-┌───────────────────────────────────────────────┐
-│                Microservices                  │
-│                                               │
-│ Auth          Candidate      Exam             │
-│ Application   Question       Answer           │
-│ Security      Scoring        Performance      │
-│ Ranking       Communication                   │
-└───────────────────────┬───────────────────────┘
-                        │
-                        ▼
-┌───────────────────────────────────────────────┐
-│         Dados / Mensageria / Cache            │
-│                                               │
-│ Databases │ Kafka │ RabbitMQ │ Redis          │
-└───────────────────────────────────────────────┘
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/50f18437-1945-4ee0-93cd-935960d44aef" />
 
 O Gateway será uma fronteira técnica.
 
