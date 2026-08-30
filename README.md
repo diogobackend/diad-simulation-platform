@@ -196,30 +196,8 @@ Sua função é coordenar processos distribuídos que possuem dependências entr
 
 Fluxo pós-prova:
 
-```text
-ApplicationFinished
-        |
-        v
-diad-orchestrator-service
-        |
-        v
-ScoringRequested / ScoreCalculated
-        |
-        v
-PerformanceRequested / PerformanceReportGenerated
-        |
-        v
-RankingUpdateRequested / RankingUpdated
-        |
-        v
-AnswerKeyAccessEvaluated
-        |
-        v
-ResultAvailable
-        |
-        v
-CommunicationRequested
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/9deb8fde-9d3c-40a3-8a6f-c16cdf86caff" />
+
 
 Eventos simples que não exigem coordenação de múltiplas etapas poderão continuar utilizando coreografia diretamente entre os serviços.
 
