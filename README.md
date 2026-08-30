@@ -155,33 +155,7 @@ Os fluxos distribuídos que dependem da conclusão de múltiplas etapas poderão
 
 Exemplo:
 
-```text
-prova finalizada
-+
-nota calculada
-+
-relatório gerado
-+
-ranking atualizado
-+
-resultado liberado
-+
-comunicação enviada
-```
-
-O objetivo é transformar cada aplicação em uma experiência completa de:
-
-```text
-simulação
-+
-resultado
-+
-diagnóstico
-+
-orientação de estudo
-```
-
----
+![Uploading image.png…]()
 
 ## 4 - Exemplo prático
 
