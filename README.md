@@ -29,7 +29,7 @@
 
 ## 1 - Sobre
 
-A **Dia D Simulation Platform** é uma plataforma digital de simulação realista de provas, exames, vestibulares, concursos e processos seletivos.
+É uma plataforma digital de simulação realista de provas, exames, vestibulares, concursos e processos seletivos.
 
 O objetivo não é apenas disponibilizar questões para estudo.
 
