@@ -155,8 +155,7 @@ Os fluxos distribuídos que dependem da conclusão de múltiplas etapas poderão
 
 Exemplo:
 
-![Uploading image.png…]()
-
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/2da9d27a-fcc2-4d88-be1e-9bdd403a4a39" />
 
 ## 4 - Exemplo prático
 
