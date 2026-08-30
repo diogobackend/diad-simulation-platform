@@ -214,31 +214,11 @@ A plataforma utilizará os dois modelos.
 
 ### Coreografia
 
-Adequada para eventos independentes.
-
-```text
-Service A
-   │
-   ▼
- Event
-   │
-   ▼
- Kafka
-   │
-   ├── Service B
-   └── Service C
-```
+Adequada para eventos independentes
+<img width="1183" height="1330" alt="image" src="https://github.com/user-attachments/assets/877db4ab-872a-43aa-b88a-32b400fcd1ec" />
 
 Nenhum serviço central controla todo o fluxo.
 
-Exemplo:
-
-```text
-CandidateCreated
-      │
-      ├── Audit/observabilidade
-      └── Communication
-```
 
 ### Orquestração
 
