@@ -187,7 +187,8 @@ Imagine o seguinte cenário.
 ---
 
 ## 5 - Fluxo resumido
-![Uploading image.png…]()
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/f5f9d388-0d24-49e6-be47-63b308194b9d" />
+
 
 O `diad-orchestrator-service` não substitui Kafka nem os eventos de domínio.
 
