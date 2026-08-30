@@ -2,7 +2,7 @@
 
 ## Sumário
 
-1. [Sobre o projeto Dia D Simulation Platform](#1---sobre-o-projeto-dia-d-simulation-platform)
+1. [Sobre](#1---sobre-o-projeto-dia-d-simulation-platform)
 2. [Repositórios](#2---repositórios)
 3. [O que este produto resolve?](#3---o-que-este-produto-resolve)
 4. [Exemplo prático](#4---exemplo-prático)
@@ -25,9 +25,9 @@
 
 ---
 
-## 1 - Sobre o projeto Dia D Simulation Platform
+## 1 - Sobre
 
-A **Dia D Simulation Platform** é uma plataforma digital de simulação realista de provas, exames, vestibulares, concursos e processos seletivos.
+É uma plataforma digital de simulação realista de provas, exames, vestibulares, concursos e processos seletivos.
 
 O objetivo do produto não é apenas disponibilizar questões para estudo.
 
