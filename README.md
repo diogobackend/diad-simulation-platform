@@ -187,51 +187,8 @@ Imagine o seguinte cenário.
 ---
 
 ## 5 - Fluxo resumido
+![Uploading image.png…]()
 
-```text
-Candidato / React
-      |
-      v
-diad-api-gateway
-      |
-      +----------------------+
-      |                      |
-      v                      v
-diad-auth-service    diad-candidate-service
-      |
-      v
-diad-exam-service
-      |
-      v
-diad-application-service
-      |
-      +----------------------+
-      |                      |
-      v                      v
-diad-question-service  diad-security-service
-      |
-      v
-diad-answer-service
-      |
-      v
-ApplicationFinished
-      |
-      v
-Kafka
-      |
-      v
-diad-orchestrator-service
-      |
-      +----------------------+----------------------+
-      |                      |                      |
-      v                      v                      v
-diad-scoring-service  diad-performance-service  diad-ranking-service
-      |                      |                      |
-      +----------------------+----------------------+
-                             |
-                             v
-                 diad-communication-service
-```
 
 O `diad-orchestrator-service` não substitui Kafka nem os eventos de domínio.
 
