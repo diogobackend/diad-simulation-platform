@@ -1,5 +1,3 @@
-<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/af6c04ed-abe6-43e2-a0af-ee31de75313c" /><img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/fc5d5220-a6cc-48a3-87d9-41d2c92fc3c3" /># Dia D Simulation Platform
-
 ## Sumário
 
 1. [Sobre](#1---sobre)
