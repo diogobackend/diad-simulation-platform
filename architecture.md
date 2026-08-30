@@ -154,40 +154,7 @@ Responsável pela entrega de notificações através de provedores externos.
 
 O fluxo de alto nível da plataforma é:
 
-```text
-Candidato
-    │
-    ▼
-Frontend
-    │
-    ▼
-API Gateway
-    │
-    ├── Auth
-    ├── Candidate
-    ├── Exam
-    └── Application
-            │
-            ├── Question
-            ├── Answer
-            └── Security
-                    │
-                    ▼
-             ApplicationFinished
-                    │
-                    ▼
-                  Kafka
-                    │
-                    ▼
-               Orchestrator
-                    │
-        ┌───────────┼───────────┐
-        ▼           ▼           ▼
-     Scoring    Performance   Ranking
-        └───────────┼───────────┘
-                    ▼
-              Communication
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ddf4640b-1cf3-494e-82c9-e39593b0e218" />
 
 Durante a prova, o `diad-application-service` permanece como autoridade sobre a aplicação.
 
