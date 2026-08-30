@@ -37,23 +37,23 @@ A proposta é reproduzir digitalmente, da forma mais fiel possível, a experiên
 
 O candidato poderá:
 
-- realizar inscrição em uma aplicação;
-- escolher município, quando aplicável;
-- receber local e sala virtual;
-- aguardar o dia e horário definidos;
-- entrar em uma sessão controlada;
-- realizar a prova com cronômetro sincronizado pelo servidor;
-- cumprir regras de permanência, saída e finalização;
-- responder exatamente à estrutura definida para aquele exame;
-- ter eventos de segurança registrados durante a sessão;
-- receber resultado, classificação e ranking;
-- acessar o gabarito quando cumprir as regras de permanência definidas;
-- consultar relatórios individuais de desempenho;
-- identificar matérias, assuntos e tipos de questão em que mais errou;
-- receber recomendações de revisão e dicas de estudo;
-- acompanhar sua evolução entre diferentes aplicações.
+- Realizar inscrição em uma aplicação;
+- Escolher município, quando aplicável;
+- Receber local e sala virtual;
+- Aguardar o dia e horário definidos;
+- Entrar em uma sessão controlada;
+- Realizar a prova com cronômetro sincronizado pelo servidor;
+- Cumprir regras de permanência, saída e finalização;
+- Responder exatamente à estrutura definida para aquele exame;
+- Ter eventos de segurança registrados durante a sessão;
+- Receber resultado, classificação e ranking;
+- Acessar o gabarito quando cumprir as regras de permanência definidas;
+- Consultar relatórios individuais de desempenho;
+- Identificar matérias, assuntos e tipos de questão em que mais errou;
+- Receber recomendações de revisão e dicas de estudo;
+- Acompanhar sua evolução entre diferentes aplicações.
 
-A plataforma será construída para suportar diferentes tipos de prova sem ficar acoplada exclusivamente ao ENEM.
+A plataforma será construída para suportar diferentes tipos de provas, seletivos e concursos, adptada a cada cenário específico.. como base primeiro, iremos trabalhar com o ENEM.
 
 Exemplos:
 
