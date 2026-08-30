@@ -16,40 +16,46 @@
 12. [Autenticação e autorização](#12---autenticação-e-autorização)
 13. [Banco de dados](#13---banco-de-dados)
 14. [Regras de aplicação de provas](#14---regras-de-aplicação-de-provas)
-15. [Padrões aplicados](#15---padrões-aplicados)
-16. [Observabilidade](#16---observabilidade)
-17. [Tecnologias](#17---tecnologias)
-18. [Modelo de negócio](#18---modelo-de-negócio)
-19. [Roadmap de desenvolvimento](#19---roadmap-de-desenvolvimento)
-20. [Status](#20---status)
+15. [Gabarito e acesso pós-prova](#15---gabarito-e-acesso-pós-prova)
+16. [Relatórios de desempenho](#16---relatórios-de-desempenho)
+17. [Padrões aplicados](#17---padrões-aplicados)
+18. [Observabilidade](#18---observabilidade)
+19. [Tecnologias](#19---tecnologias)
+20. [Modelo de negócio](#20---modelo-de-negócio)
+21. [Roadmap de desenvolvimento](#21---roadmap-de-desenvolvimento)
+22. [Status](#22---status)
 
 ---
 
 ## 1 - Sobre
 
-É uma plataforma digital de simulação realista de provas, exames, vestibulares, concursos e processos seletivos.
+A **Dia D Simulation Platform** é uma plataforma digital de simulação realista de provas, exames, vestibulares, concursos e processos seletivos.
 
-O objetivo do produto não é apenas disponibilizar questões para estudo.
+O objetivo não é apenas disponibilizar questões para estudo.
 
 A proposta é reproduzir digitalmente, da forma mais fiel possível, a experiência do dia real de uma prova.
 
 O candidato poderá:
 
 - realizar inscrição em uma aplicação;
-- escolher município, quando a prova exigir localização;
-- receber um local e uma sala virtual;
-- aguardar o dia e horário oficial da aplicação;
-- entrar em uma sessão de prova controlada;
+- escolher município, quando aplicável;
+- receber local e sala virtual;
+- aguardar o dia e horário definidos;
+- entrar em uma sessão controlada;
 - realizar a prova com cronômetro sincronizado pelo servidor;
-- responder exatamente à quantidade e ao formato de questões definidos para aquele exame;
 - cumprir regras de permanência, saída e finalização;
-- ter ações de segurança registradas durante a sessão;
+- responder exatamente à estrutura definida para aquele exame;
+- ter eventos de segurança registrados durante a sessão;
 - receber resultado, classificação e ranking;
-- acompanhar seu histórico de desempenho.
+- acessar o gabarito quando cumprir as regras de permanência definidas;
+- consultar relatórios individuais de desempenho;
+- identificar matérias, assuntos e tipos de questão em que mais errou;
+- receber recomendações de revisão e dicas de estudo;
+- acompanhar sua evolução entre diferentes aplicações.
 
-A plataforma será construída para suportar diferentes tipos de prova sem acoplar o sistema exclusivamente ao ENEM.
+A plataforma será construída para suportar diferentes tipos de prova sem ficar acoplada exclusivamente ao ENEM.
 
-Exemplos de provas que poderão ser configuradas:
+Exemplos:
 
 ```text
 ENEM
@@ -62,43 +68,42 @@ Processos seletivos
 Provas institucionais
 ```
 
-O ENEM poderá ser utilizado como um dos primeiros casos de uso por possuir regras de aplicação bem definidas e uma experiência de prova amplamente conhecida.
-
 ---
 
 ## 2 - Repositórios
 
 | Repositório | Responsabilidade |
 |---|---|
-| `diad-simulation-platform` | Repositório central de documentação, arquitetura, roadmap e visão geral |
+| `diad-simulation-platform` | Documentação central, arquitetura, roadmap e visão geral |
 | `diad-auth-service` | Login, autenticação, JWT, refresh token, roles e permissões |
 | `diad-api-gateway` | Entrada única, roteamento, segurança e filtros técnicos |
-| `diad-candidate-service` | Cadastro, perfil, dados pessoais e histórico básico do candidato |
-| `diad-exam-service` | Cadastro e configuração dos tipos, edições, estruturas e regras das provas |
-| `diad-question-service` | Banco de questões, disciplinas, áreas, alternativas e metadados |
-| `diad-application-service` | Coordena a aplicação real da prova, horários, sessão, sala e regras de permanência |
-| `diad-answer-service` | Recebimento, persistência e controle das respostas |
-| `diad-scoring-service` | Correção e cálculo de notas conforme a política de cada exame |
-| `diad-ranking-service` | Rankings, classificações e posições por recorte |
-| `diad-security-service` | Eventos de segurança, troca de aba, múltiplas sessões e comportamento suspeito |
+| `diad-candidate-service` | Cadastro, perfil e dados do candidato |
+| `diad-exam-service` | Tipos de prova, edições, estruturas e políticas |
+| `diad-question-service` | Banco de questões, disciplinas, assuntos e alternativas |
+| `diad-application-service` | Aplicação da prova, horários, sessão, sala e regras operacionais |
+| `diad-answer-service` | Recebimento e persistência das respostas |
+| `diad-scoring-service` | Correção e cálculo de notas |
+| `diad-performance-service` | Relatórios de desempenho, evolução e recomendações |
+| `diad-ranking-service` | Rankings e classificações |
+| `diad-security-service` | Eventos de segurança e integridade da sessão |
 | `diad-communication-service` | E-mail, notificações, lembretes, retry e DLQ |
-| `diad-config-server` | Configuração centralizada dos serviços |
-| `diad-shared-contracts` | Contratos OpenAPI, AsyncAPI e schemas de eventos |
-| `diad-observability-starter` | Biblioteca compartilhada para logs, tracing, correlationId e métricas |
-| `diad-platform-infra` | Docker Compose, Kubernetes, bancos, mensageria e observabilidade |
-| `diad-web` | Frontend React da plataforma |
+| `diad-config-server` | Configuração centralizada |
+| `diad-shared-contracts` | OpenAPI, AsyncAPI e schemas de eventos |
+| `diad-observability-starter` | Logs, tracing, correlationId e métricas |
+| `diad-platform-infra` | Docker, Kubernetes, bancos, mensageria e observabilidade |
+| `diad-web` | Frontend React |
 
 ---
 
 ## 3 - O que este produto resolve?
 
-Plataformas tradicionais de simulados normalmente concentram a experiência em:
+Plataformas tradicionais de simulado normalmente concentram a experiência em:
 
 - banco de questões;
 - resolução livre;
-- cronômetro local;
+- cronômetro;
 - correção;
-- estatísticas de desempenho.
+- estatísticas básicas.
 
 A **Dia D Simulation Platform** adiciona uma camada de experiência operacional.
 
@@ -106,7 +111,7 @@ O sistema deve simular o contexto em que uma prova realmente acontece.
 
 Isso inclui:
 
-- inscrição em uma aplicação específica;
+- inscrição em aplicação específica;
 - horário oficial de abertura;
 - horário limite para início;
 - duração real da prova;
@@ -115,31 +120,48 @@ Isso inclui:
 - regras de saída;
 - local e sala virtual;
 - sessão única;
+- controle de múltiplos logins;
 - registro de troca de aba;
 - registro de perda de foco;
-- controle de múltiplos logins;
 - encerramento automático;
 - envio definitivo da prova;
 - cálculo de resultado;
 - classificação;
 - ranking;
+- liberação de gabarito conforme regras;
+- análise pós-prova;
 - histórico de aplicações.
 
-O sistema também busca resolver um problema arquitetural:
+A experiência não deve terminar quando a prova acaba.
+
+Após a aplicação, a plataforma também deve ajudar o candidato a entender onde errou e onde precisa melhorar.
+
+Os relatórios deverão permitir identificar:
+
+- disciplinas com maior quantidade de erros;
+- assuntos com maior dificuldade;
+- áreas com melhor e pior desempenho;
+- questões corretas, incorretas e não respondidas;
+- percentual de acertos por disciplina;
+- percentual de acertos por assunto;
+- evolução entre aplicações;
+- comparação com médias da aplicação;
+- pontos fortes;
+- pontos fracos;
+- prioridades de revisão;
+- recomendações e dicas de estudo.
+
+O objetivo é transformar cada aplicação em uma experiência completa de:
 
 ```text
-Como criar um motor de aplicação de provas suficientemente genérico para suportar exames com regras muito diferentes sem espalhar if/else por toda a plataforma?
+simulação
++
+resultado
++
+diagnóstico
++
+orientação de estudo
 ```
-
-A resposta será baseada em:
-
-- domínio genérico de provas;
-- políticas configuráveis;
-- Strategy Pattern;
-- microservices por contexto;
-- arquitetura hexagonal;
-- eventos de domínio;
-- separação entre regras de aplicação e regras de pontuação.
 
 ---
 
@@ -147,25 +169,25 @@ A resposta será baseada em:
 
 Imagine o seguinte cenário.
 
-Diogo deseja participar de uma simulação do ENEM.
-
 1. Diogo cria uma conta.
-2. O `diad-auth-service` autentica o usuário e gera um token JWT.
-3. O `diad-candidate-service` mantém seu perfil de candidato.
-4. Diogo acessa uma edição disponível do ENEM.
-5. O `diad-exam-service` fornece a estrutura e as regras daquela edição.
+2. O `diad-auth-service` autentica o usuário.
+3. O `diad-candidate-service` mantém seu perfil.
+4. Diogo escolhe uma aplicação disponível.
+5. O `diad-exam-service` fornece a estrutura e as regras da prova.
 6. Diogo realiza a inscrição.
 7. O `diad-application-service` cria sua participação.
 8. O sistema associa município, local virtual e sala.
 9. No dia da prova, Diogo entra na sala de espera.
 10. O servidor libera a prova no horário configurado.
-11. O `diad-question-service` fornece as questões previamente associadas à prova.
-12. O `diad-answer-service` persiste as respostas durante a aplicação.
-13. O `diad-security-service` registra eventos de segurança.
-14. Quando o tempo termina ou o candidato envia a prova, a aplicação é encerrada.
+11. O `diad-question-service` fornece as questões.
+12. O `diad-answer-service` registra as respostas.
+13. O `diad-security-service` registra eventos de integridade.
+14. A aplicação é finalizada pelo candidato ou automaticamente pelo servidor.
 15. O `diad-scoring-service` calcula o resultado.
-16. O `diad-ranking-service` atualiza as classificações.
-17. O `diad-communication-service` pode notificar o candidato sobre a liberação do resultado.
+16. O `diad-performance-service` gera a análise de desempenho.
+17. O `diad-ranking-service` atualiza as classificações.
+18. O `diad-application-service` verifica se o candidato cumpriu os critérios para acessar o gabarito.
+19. O `diad-communication-service` notifica o candidato quando resultado e relatório estiverem disponíveis.
 
 Exemplo:
 
@@ -177,142 +199,128 @@ Local virtual: Escola X
 Sala virtual: 07
 
 Status: FINISHED
-Nota calculada: 712.40
+Nota: 712.40
+
 Ranking nacional: 1.842
 Ranking estadual: 73
 Ranking municipal: 21
-Ranking do curso escolhido: 193
+
+Tempo de permanência: 04h17
+Gabarito: LIBERADO
+
+Melhor área: Linguagens
+Pior área: Ciências da Natureza
+
+Maior dificuldade:
+- Física
+- Eletrodinâmica
+- Cinemática
+
+Recomendação:
+Revisar os assuntos com taxa de acerto abaixo de 50% antes da próxima aplicação.
 ```
-
-Outro exemplo:
-
-```text
-Candidato: Maria Silva
-Prova: Concurso Público - Banca Cebraspe
-Cargo: Analista de Tecnologia
-
-Questões corretas: 92
-Questões incorretas: 21
-Questões em branco: 7
-Pontuação final: calculada conforme política configurada
-Status: FINISHED
-```
-
-A plataforma não deve assumir que todas as provas utilizam a mesma forma de pontuação.
 
 ---
 
 ## 5 - Fluxo resumido
 
 ```text
-Candidato / Frontend React
-          |
-          v
-   diad-api-gateway
-          |
-          +----------------------+
-          |                      |
-          v                      v
- diad-auth-service      diad-candidate-service
-          |
-          v
-   diad-exam-service
-          |
-          v
+Candidato / React
+      |
+      v
+diad-api-gateway
+      |
+      +----------------------+
+      |                      |
+      v                      v
+diad-auth-service    diad-candidate-service
+      |
+      v
+diad-exam-service
+      |
+      v
 diad-application-service
-          |
-          +----------------------+
-          |                      |
-          v                      v
-diad-question-service   diad-security-service
-          |
-          v
- diad-answer-service
-          |
-          v
-       Kafka
-          |
-          +----------------------+
-          |                      |
-          v                      v
-diad-scoring-service    diad-ranking-service
-          |
-          v
-diad-communication-service
+      |
+      +----------------------+
+      |                      |
+      v                      v
+diad-question-service  diad-security-service
+      |
+      v
+diad-answer-service
+      |
+      v
+Kafka
+      |
+      +----------------------+----------------------+
+      |                      |                      |
+      v                      v                      v
+diad-scoring-service  diad-performance-service  diad-ranking-service
+      |                      |                      |
+      +----------------------+----------------------+
+                             |
+                             v
+                 diad-communication-service
 ```
 
-Fluxo simplificado da aplicação:
+Fluxo pós-prova:
 
 ```text
-Inscrição
-   |
-   v
-Sala virtual
-   |
-   v
-Aguardando horário
-   |
-   v
-Prova liberada
-   |
-   v
-Sessão ativa
-   |
-   +--> respostas
-   |
-   +--> eventos de segurança
-   |
-   v
-Prova finalizada
-   |
-   v
-Correção
-   |
-   v
-Ranking
-   |
-   v
-Resultado
+ApplicationFinished
+        |
+        v
+ScoreCalculated
+        |
+        +----------------------+
+        |                      |
+        v                      v
+PerformanceReportGenerated  RankingUpdated
+        |
+        v
+AnswerKeyAccessEvaluated
+        |
+        v
+ResultAvailable
 ```
 
 ---
 
 ## 6 - Objetivo técnico
 
-O projeto será desenvolvido como uma plataforma SaaS com foco em escalabilidade, extensibilidade e proximidade com ambientes reais de produção.
+Principais objetivos:
 
-Principais objetivos técnicos:
-
-- utilizar Kotlin com Java 21;
-- aplicar Spring Boot;
-- utilizar Arquitetura Hexagonal / Ports and Adapters;
-- manter domínio independente de frameworks;
-- construir microservices independentes;
-- aplicar database per service;
-- utilizar API Gateway;
-- centralizar autenticação;
-- utilizar JWT;
-- aplicar Spring Security;
-- utilizar comunicação síncrona e assíncrona;
-- aplicar Kafka para eventos de domínio;
-- utilizar RabbitMQ para filas de trabalho, retry e DLQ;
-- aplicar Outbox Pattern;
-- aplicar Inbox Pattern;
-- garantir idempotência;
-- aplicar Feature Toggles;
-- utilizar Flyway;
-- expor OpenAPI;
-- documentar eventos com AsyncAPI;
-- utilizar correlationId;
-- gerar logs estruturados;
-- utilizar OpenTelemetry;
-- expor métricas para Prometheus;
-- criar dashboards no Grafana;
-- preparar os serviços para Docker;
-- preparar os serviços para Kubernetes;
-- permitir escalabilidade horizontal;
-- manter regras específicas de cada prova desacopladas do núcleo;
-- desenvolver backend e frontend de forma incremental por funcionalidade.
+- Kotlin;
+- Java 21;
+- Spring Boot;
+- Arquitetura Hexagonal;
+- microservices;
+- event-driven architecture;
+- database per service;
+- API Gateway;
+- autenticação centralizada;
+- JWT;
+- Spring Security;
+- Kafka;
+- RabbitMQ;
+- Redis;
+- Outbox Pattern;
+- Inbox Pattern;
+- idempotência;
+- Feature Toggles;
+- Flyway;
+- OpenAPI;
+- AsyncAPI;
+- correlationId;
+- logs estruturados;
+- OpenTelemetry;
+- Prometheus;
+- Grafana;
+- Docker;
+- Kubernetes;
+- escalabilidade horizontal;
+- regras configuráveis por prova;
+- backend como autoridade de tempo;
+- desenvolvimento incremental entre backend e frontend.
 
 ---
 
@@ -320,56 +328,30 @@ Principais objetivos técnicos:
 
 | Serviço | Responsabilidade |
 |---|---|
-| `diad-auth-service` | Autenticação, usuários, JWT, refresh token, roles e permissões |
-| `diad-api-gateway` | Entrada única, roteamento, token, CORS, rate limit e correlationId |
+| `diad-auth-service` | Autenticação e autorização |
+| `diad-api-gateway` | Entrada técnica e roteamento |
 | `diad-candidate-service` | Cadastro e perfil do candidato |
-| `diad-exam-service` | Estrutura, edição, configuração e políticas das provas |
-| `diad-question-service` | Questões, disciplinas, alternativas, origem e metadados |
-| `diad-application-service` | Aplicação em tempo real, sessão, cronômetro, sala e regras operacionais |
-| `diad-answer-service` | Registro e persistência de respostas |
-| `diad-scoring-service` | Cálculo de nota e políticas de correção |
+| `diad-exam-service` | Estrutura e políticas das provas |
+| `diad-question-service` | Banco de questões |
+| `diad-application-service` | Sessão, horário, sala e regras de aplicação |
+| `diad-answer-service` | Respostas |
+| `diad-scoring-service` | Correção e nota |
+| `diad-performance-service` | Desempenho, evolução e recomendações |
 | `diad-ranking-service` | Ranking e classificação |
-| `diad-security-service` | Eventos antifraude e integridade da sessão |
-| `diad-communication-service` | Comunicações assíncronas |
+| `diad-security-service` | Integridade da sessão |
+| `diad-communication-service` | Comunicações |
 | `diad-config-server` | Configuração centralizada |
 
 ---
 
 ## 8 - Bibliotecas e repositórios de apoio
 
-Além dos microservices, a plataforma possui repositórios de apoio.
-
 | Repositório | Responsabilidade |
 |---|---|
 | `diad-platform-infra` | Docker Compose, Kubernetes, Kafka, RabbitMQ, Redis, bancos, Prometheus e Grafana |
-| `diad-shared-contracts` | OpenAPI, AsyncAPI, schemas de eventos e exemplos de payload |
+| `diad-shared-contracts` | OpenAPI, AsyncAPI e schemas de eventos |
 | `diad-observability-starter` | Logs estruturados, correlationId, tracing, MDC e métricas |
-| `diad-web` | Aplicação React utilizada pelos candidatos, escolas e administradores |
-
-### diad-observability-starter
-
-Não é um microservice.
-
-É uma biblioteca compartilhada para evitar duplicação de código técnico.
-
-Responsabilidades planejadas:
-
-- annotation `@LogInfo`;
-- annotation `@LogParameter`;
-- logs automáticos com AOP;
-- propagação de correlationId;
-- configuração de MDC;
-- mascaramento de informações sensíveis;
-- padronização dos campos de log;
-- integração com OpenTelemetry;
-- integração com métricas.
-
-Exemplo:
-
-```kotlin
-@LogInfo(logParameters = true, logReturn = true)
-fun startApplication(input: StartApplicationInput): ApplicationSession
-```
+| `diad-web` | Frontend React |
 
 ---
 
@@ -377,27 +359,17 @@ fun startApplication(input: StartApplicationInput): ApplicationSession
 
 ### diad-auth-service
 
-Responsável pela autenticação e autorização.
+Responsável por:
 
-Responsabilidades:
+- cadastro de usuário;
+- login;
+- validação de senha;
+- JWT;
+- refresh token;
+- roles;
+- permissões.
 
-- cadastrar usuário;
-- autenticar usuário;
-- validar senha;
-- gerar JWT;
-- gerar refresh token;
-- controlar roles;
-- controlar permissões;
-- invalidar sessão quando necessário.
-
-Exemplo:
-
-```text
-POST /api/v1/auth/login
-POST /api/v1/auth/refresh
-```
-
-Roles iniciais possíveis:
+Roles iniciais:
 
 ```text
 CANDIDATE
@@ -409,37 +381,31 @@ PLATFORM_ADMIN
 
 ### diad-api-gateway
 
-Responsável pela entrada técnica da plataforma.
-
-Responsabilidades:
+Responsável por:
 
 - receber requisições externas;
 - validar JWT;
-- aplicar filtros técnicos;
-- controlar CORS;
+- aplicar CORS;
 - aplicar rate limit;
 - propagar correlationId;
 - rotear chamadas.
 
-O gateway não deve conter regra de negócio.
+Não deve conter regra de negócio.
 
 ---
 
 ### diad-candidate-service
 
-Responsável pelo perfil do candidato.
-
-Responsabilidades:
+Responsável por:
 
 - criar candidato;
 - consultar candidato;
 - atualizar perfil;
-- armazenar município;
-- armazenar preferências;
-- manter dados básicos de participação;
-- vincular candidato a uma escola quando aplicável.
+- manter município;
+- vincular candidato a escola;
+- manter dados básicos do candidato.
 
-Eventos possíveis:
+Eventos:
 
 ```text
 CandidateCreated
@@ -451,15 +417,15 @@ CandidateSchoolLinked
 
 ### diad-exam-service
 
-Responsável pela definição estrutural das provas.
+Responsável pela definição das provas.
 
 Conceitos principais:
 
 ```text
 ExamType
 ExamEdition
-ExamSection
 ExamDay
+ExamSection
 QuestionStructure
 ApplicationPolicy
 ScoringPolicy
@@ -470,25 +436,15 @@ Responsabilidades:
 
 - cadastrar tipo de prova;
 - cadastrar edição;
-- definir quantidade de dias;
-- definir seções;
 - definir duração;
-- definir regras de aplicação;
-- definir regras de pontuação;
-- definir quantidade de questões;
-- definir tipo de questão;
+- definir número de dias;
+- definir seções;
+- definir tipos de questão;
 - definir pesos;
 - definir critérios de eliminação;
-- ativar/desativar edição.
-
-Exemplo:
-
-```text
-ExamType: ENEM
-Edition: Simulation 2026 #01
-Days: 2
-ScoringPolicy: TRI
-```
+- definir políticas de aplicação;
+- definir políticas de pontuação;
+- definir políticas de ranking.
 
 ---
 
@@ -499,18 +455,16 @@ Responsável pelo banco de questões.
 Responsabilidades:
 
 - cadastrar questão;
-- consultar questão;
-- importar questões;
-- definir área;
+- importar questão;
 - definir disciplina;
 - definir assunto;
+- definir área;
 - definir alternativas;
 - definir resposta correta;
 - registrar ano;
 - registrar banca;
 - registrar fonte;
-- registrar dificuldade;
-- selecionar questões conforme critérios.
+- registrar dificuldade.
 
 Tipos possíveis:
 
@@ -526,27 +480,26 @@ PRACTICAL
 
 ### diad-application-service
 
-É o serviço central da experiência de aplicação.
+Responsável pela experiência real de aplicação.
 
 Responsabilidades:
 
-- realizar inscrição em aplicação;
-- associar candidato à aplicação;
-- atribuir sala virtual;
-- atribuir local virtual;
-- manter status da participação;
-- controlar horário de início;
-- controlar horário limite;
-- controlar duração;
-- controlar permanência mínima;
-- abrir sessão;
-- manter horário oficial do servidor;
-- impedir início fora da janela;
-- finalizar automaticamente;
-- aplicar regras específicas da prova;
-- receber estado de segurança quando necessário.
+- inscrição;
+- associação do candidato à aplicação;
+- sala virtual;
+- local virtual;
+- horário de início;
+- horário limite;
+- duração;
+- permanência mínima;
+- sessão;
+- status;
+- encerramento automático;
+- regras de saída;
+- regras de submissão;
+- avaliação de acesso ao gabarito.
 
-Conceitos importantes:
+Conceitos:
 
 ```text
 Application
@@ -554,7 +507,8 @@ ApplicationSession
 VirtualLocation
 VirtualRoom
 ApplicationStatus
-ApplicationRule
+ApplicationPolicy
+AnswerKeyAccessPolicy
 ```
 
 Status possíveis:
@@ -574,17 +528,14 @@ DISQUALIFIED
 
 ### diad-answer-service
 
-Responsável pelas respostas do candidato.
-
-Responsabilidades:
+Responsável por:
 
 - registrar resposta;
 - alterar resposta durante a sessão;
 - garantir idempotência;
 - registrar data/hora;
-- associar resposta à sessão;
 - bloquear alteração após finalização;
-- consolidar respostas da prova.
+- consolidar respostas.
 
 Eventos:
 
@@ -596,9 +547,122 @@ ExamAnswersFinalized
 
 ---
 
+### diad-scoring-service
+
+Responsável exclusivamente pela correção e cálculo de nota.
+
+Responsabilidades:
+
+- corrigir respostas;
+- calcular nota;
+- aplicar pesos;
+- aplicar regras de pontuação;
+- consolidar acertos;
+- consolidar erros;
+- consolidar não respondidas;
+- publicar resultado de pontuação.
+
+Estratégias possíveis:
+
+```text
+SimpleScore
+WeightedScore
+NegativeScore
+CebraspeScore
+TriScore
+PercentageScore
+CustomScore
+```
+
+O serviço não deve possuir lógica semelhante a:
+
+```kotlin
+if (examType == "ENEM") {
+    ...
+} else if (examType == "CEBRASPE") {
+    ...
+}
+```
+
+As regras devem ser implementadas através de políticas e estratégias.
+
+---
+
+### diad-performance-service
+
+Responsável pela análise pós-prova.
+
+Responsabilidades:
+
+- gerar relatório individual;
+- analisar desempenho geral;
+- analisar desempenho por área;
+- analisar desempenho por disciplina;
+- analisar desempenho por assunto;
+- identificar pontos fortes;
+- identificar pontos fracos;
+- identificar assuntos prioritários;
+- comparar aplicações anteriores;
+- calcular evolução;
+- gerar recomendações;
+- gerar dicas de estudo;
+- disponibilizar dados para dashboards;
+- gerar relatórios agregados para escolas.
+
+Exemplo de relatório:
+
+```text
+PerformanceReport
+
+candidateId
+examId
+overallScore
+
+subjects[]
+topics[]
+strongPoints[]
+weakPoints[]
+recommendations[]
+```
+
+Exemplo de regra inicial:
+
+```text
+Abaixo de 40%
+→ prioridade alta de revisão
+
+40% até 70%
+→ precisa reforçar
+
+Acima de 70%
+→ bom desempenho
+```
+
+Essas regras poderão evoluir futuramente para modelos mais sofisticados.
+
+---
+
+### diad-ranking-service
+
+Responsável por:
+
+- ranking global;
+- ranking por país;
+- ranking por estado;
+- ranking por município;
+- ranking por escola;
+- ranking por turma;
+- ranking por prova;
+- ranking por curso;
+- ranking por categoria.
+
+Redis poderá ser utilizado para leitura frequente de rankings.
+
+---
+
 ### diad-security-service
 
-Responsável pela integridade da sessão.
+Responsável por eventos de integridade.
 
 Eventos possíveis:
 
@@ -616,101 +680,14 @@ SessionDuplicated
 
 Responsabilidades:
 
-- registrar eventos de segurança;
+- registrar eventos;
 - calcular nível de risco;
-- aplicar regras configuráveis;
+- aplicar políticas configuráveis;
 - sinalizar sessão suspeita;
-- recomendar bloqueio;
-- armazenar histórico.
+- recomendar bloqueio ou desqualificação;
+- manter histórico.
 
 O serviço não deve assumir que qualquer evento representa automaticamente fraude.
-
-As regras devem ser configuráveis por tipo de prova.
-
----
-
-### diad-scoring-service
-
-Responsável por calcular resultados.
-
-O serviço deve suportar estratégias diferentes.
-
-Exemplos:
-
-```text
-SimpleScore
-WeightedScore
-NegativeScore
-CebraspeScore
-TriScore
-PercentageScore
-CustomScore
-```
-
-O código não deve possuir estruturas semelhantes a:
-
-```kotlin
-if (examType == "ENEM") {
-    ...
-} else if (examType == "CEBRASPE") {
-    ...
-}
-```
-
-A implementação deve utilizar políticas ou estratégias.
-
-Exemplo conceitual:
-
-```text
-ScoringPolicy
-    |
-    +--> SimpleScoringStrategy
-    +--> WeightedScoringStrategy
-    +--> NegativeScoringStrategy
-    +--> TriScoringStrategy
-```
-
-Eventos:
-
-```text
-ScoreCalculationRequested
-ScoreCalculated
-ScoreCalculationFailed
-```
-
----
-
-### diad-ranking-service
-
-Responsável pelas classificações.
-
-Possíveis rankings:
-
-```text
-GLOBAL
-COUNTRY
-STATE
-CITY
-SCHOOL
-CLASS
-EXAM
-COURSE
-POSITION
-CATEGORY
-```
-
-Responsabilidades:
-
-- atualizar ranking;
-- calcular posição;
-- consultar posição;
-- gerar ranking por escola;
-- gerar ranking por município;
-- gerar ranking por estado;
-- gerar ranking por categoria;
-- manter snapshots quando necessário.
-
-Redis poderá ser utilizado para rankings de leitura frequente.
 
 ---
 
@@ -720,14 +697,18 @@ Responsável pelas comunicações.
 
 Exemplos:
 
-- inscrição confirmada;
-- lembrete de prova;
+- confirmação de cadastro;
+- confirmação de inscrição;
 - cartão de confirmação;
+- local e sala;
+- lembrete da prova;
 - aviso de início;
-- resultado disponível;
-- comunicação com escola.
+- aviso de resultado;
+- aviso de gabarito disponível;
+- envio de relatório de desempenho;
+- notificações institucionais.
 
-Pode utilizar:
+Canais possíveis:
 
 ```text
 E-mail
@@ -745,17 +726,16 @@ NotificationProviderPort
     |
     +--> EmailProviderAdapter
     +--> WhatsAppProviderAdapter
+    +--> PushProviderAdapter
 ```
 
-Esse serviço é candidato ao uso de RabbitMQ.
+RabbitMQ será utilizado para filas de comunicação, retry e DLQ.
 
 ---
 
 ## 10 - Arquitetura Hexagonal
 
-Cada microservice deve seguir Arquitetura Hexagonal.
-
-Estrutura padrão:
+Cada microservice deve seguir:
 
 ```text
 src/main/kotlin/com/diadsimulation/{service}/
@@ -781,7 +761,7 @@ src/main/kotlin/com/diadsimulation/{service}/
     └── configuration/
 ```
 
-Regras arquiteturais:
+Regras:
 
 - controller não acessa repository diretamente;
 - consumer não executa regra de negócio diretamente;
@@ -792,34 +772,21 @@ Regras arquiteturais:
 - domínio não conhece Kafka;
 - domínio não conhece RabbitMQ;
 - domínio não conhece HTTP;
-- toda entrada passa por uma porta de entrada;
-- toda saída passa por uma porta de saída;
-- integrações externas devem ser abstraídas;
-- use cases dependem de portas, não de adapters.
+- toda entrada passa por porta de entrada;
+- toda saída passa por porta de saída;
+- integrações externas devem ser abstraídas.
 
 ---
 
 ## 11 - Comunicação entre serviços
 
-A plataforma utilizará três formas principais de comunicação.
-
 ### REST
 
-Usado para operações síncronas.
-
-Exemplos:
-
-```text
-GET /api/v1/candidates/{candidateId}
-GET /api/v1/exams/{examId}
-GET /api/v1/applications/{applicationId}
-GET /api/v1/rankings/{rankingId}
-POST /api/v1/auth/login
-```
+Para operações síncronas.
 
 ### Kafka
 
-Usado para eventos de domínio.
+Para eventos de domínio.
 
 Exemplos:
 
@@ -829,59 +796,45 @@ ExamPublished
 ApplicationRegistered
 ApplicationStarted
 AnswerSubmitted
-SecurityViolationDetected
 ApplicationFinished
 ScoreCalculated
+PerformanceReportGenerated
 RankingUpdated
+AnswerKeyAccessGranted
 ```
 
 ### RabbitMQ
 
-Usado para filas de trabalho.
+Para filas de trabalho.
 
 Exemplos:
 
 ```text
 SendRegistrationEmail
 SendExamReminder
-ProcessNotification
+SendResultAvailableNotification
+SendPerformanceReport
 RetryNotification
 ReprocessFailedJob
 ```
-
-RabbitMQ deve ser utilizado quando for necessário:
-
-- retry;
-- DLQ;
-- controle de tentativa;
-- fila de trabalho;
-- reprocessamento.
 
 ---
 
 ## 12 - Autenticação e autorização
 
-A autenticação será centralizada no `diad-auth-service`.
-
 Fluxo:
 
 ```text
-1. Usuário realiza login
-2. Auth Service valida as credenciais
+1. usuário realiza login
+2. Auth Service valida credenciais
 3. Auth Service gera JWT
-4. Frontend envia JWT nas chamadas seguintes
-5. API Gateway valida o token
-6. Gateway propaga contexto do usuário
-7. Requisição segue para o microservice
+4. frontend envia JWT
+5. API Gateway valida token
+6. Gateway propaga contexto
+7. requisição segue para o serviço interno
 ```
 
 Exemplo:
-
-```http
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
-```
-
-Payload possível:
 
 ```json
 {
@@ -891,23 +844,15 @@ Payload possível:
 }
 ```
 
-Para usuário institucional:
-
-```json
-{
-  "sub": "user-id",
-  "schoolId": "school-id",
-  "role": "SCHOOL_ADMIN"
-}
-```
-
 ---
 
 ## 13 - Banco de dados
 
-A plataforma utilizará `database per service`.
+Estratégia:
 
-Possível distribuição:
+```text
+database per service
+```
 
 | Serviço | Banco |
 |---|---|
@@ -918,11 +863,16 @@ Possível distribuição:
 | `diad-application-service` | `application_db` |
 | `diad-answer-service` | `answer_db` |
 | `diad-scoring-service` | `scoring_db` |
+| `diad-performance-service` | `performance_db` |
 | `diad-ranking-service` | `ranking_db` |
 | `diad-security-service` | `security_db` |
 | `diad-communication-service` | `communication_db` |
 
-A tecnologia inicial prevista é PostgreSQL.
+Tecnologia inicial:
+
+```text
+PostgreSQL
+```
 
 Redis poderá ser utilizado para:
 
@@ -930,24 +880,14 @@ Redis poderá ser utilizado para:
 - sessões temporárias;
 - rate limiting;
 - locks distribuídos;
-- dados de leitura rápida;
-- ranking em tempo real;
+- ranking;
 - informações temporárias de aplicação.
-
-Regras:
-
-- serviço não acessa diretamente banco de outro serviço;
-- alterações devem usar Flyway;
-- schema deve ser versionado;
-- integrações entre serviços devem utilizar API ou mensageria.
 
 ---
 
 ## 14 - Regras de aplicação de provas
 
-As regras não devem ser fixadas diretamente no código para um exame específico.
-
-A plataforma deve possuir conceitos genéricos.
+As regras não devem ficar fixas para um exame específico.
 
 Exemplo:
 
@@ -959,47 +899,144 @@ ApplicationPolicy
 ├── ExitPolicy
 ├── SecurityPolicy
 ├── SessionPolicy
-└── SubmissionPolicy
+├── SubmissionPolicy
+└── AnswerKeyAccessPolicy
 ```
 
-Exemplo ENEM:
+Exemplo:
 
 ```text
+ENEM
+
 StartTime: configurado
 EndTime: configurado
 MinimumStay: configurado
-QuestionFormat: MULTIPLE_CHOICE
 Days: 2
 Essay: enabled
 Scoring: TRI
+AnswerKeyAccess: condicionado à permanência mínima
 ```
 
-Exemplo Cebraspe:
+Outro exemplo:
 
 ```text
+Cebraspe
+
 QuestionFormat: TRUE_FALSE
 NegativeScoring: enabled
-Duration: configurada
-MinimumStay: configurada
+MinimumStay: configurado
+AnswerKeyAccess: conforme política da aplicação
 ```
-
-Exemplo OAB:
-
-```text
-Phase 1:
-  QuestionFormat: MULTIPLE_CHOICE
-
-Phase 2:
-  QuestionFormat: DISCURSIVE / PRACTICAL
-```
-
-A regra deve ser associada ao exame ou à edição.
-
-O objetivo é permitir adicionar novos exames sem alterar o núcleo da plataforma.
 
 ---
 
-## 15 - Padrões aplicados
+## 15 - Gabarito e acesso pós-prova
+
+O acesso ao gabarito será controlado pelo `diad-application-service`.
+
+O `diad-scoring-service` não será responsável por decidir quem pode acessar o gabarito.
+
+A regra deverá ser abstraída.
+
+Exemplo conceitual:
+
+```kotlin
+interface AnswerKeyAccessPolicy {
+    fun canAccess(context: AnswerKeyAccessContext): Boolean
+}
+```
+
+Uma política poderá considerar:
+
+```text
+tempo de permanência
+status da aplicação
+horário de liberação
+tipo da prova
+edição
+possível desqualificação
+```
+
+Exemplo:
+
+```text
+Candidato permaneceu o tempo mínimo exigido
++
+prova finalizada corretamente
++
+gabarito já está dentro da janela de liberação
+
+→ GABARITO LIBERADO
+```
+
+Caso contrário:
+
+```text
+→ GABARITO BLOQUEADO
+```
+
+Isso permite que diferentes provas tenham regras diferentes sem acoplamento.
+
+---
+
+## 16 - Relatórios de desempenho
+
+O `diad-performance-service` deverá gerar relatórios pós-prova.
+
+O relatório poderá exibir:
+
+```text
+Nota geral
+Acertos
+Erros
+Não respondidas
+
+Desempenho por:
+- área
+- disciplina
+- assunto
+- dificuldade
+- tipo de questão
+
+Pontos fortes
+Pontos fracos
+Assuntos prioritários
+Evolução
+Comparação com aplicação anterior
+Comparação com média geral
+Recomendações
+Dicas de estudo
+```
+
+Exemplo:
+
+```text
+Física: 42% de acerto
+Matemática: 78% de acerto
+Português: 81% de acerto
+
+Prioridade de revisão:
+1. Eletrodinâmica
+2. Cinemática
+3. Óptica
+
+Recomendação:
+Revisar os conteúdos classificados como prioridade alta antes da próxima aplicação.
+```
+
+Para instituições, poderão existir relatórios agregados:
+
+```text
+aluno
+turma
+série
+escola
+município
+```
+
+---
+
+## 17 - Padrões aplicados
 
 - Arquitetura Hexagonal;
 - Ports and Adapters;
@@ -1014,12 +1051,8 @@ O objetivo é permitir adicionar novos exames sem alterar o núcleo da plataform
 - Constructor Injection;
 - Strategy Pattern;
 - Policy Pattern;
-- Factory quando necessário;
-- Exceptions específicas;
 - Spring Security;
 - JWT;
-- OpenAPI;
-- AsyncAPI;
 - Kafka;
 - RabbitMQ;
 - Redis;
@@ -1032,34 +1065,22 @@ O objetivo é permitir adicionar novos exames sem alterar o núcleo da plataform
 - Correlation ID;
 - logs estruturados;
 - tracing distribuído;
-- migrations com Flyway;
-- cache;
-- locks distribuídos quando necessário.
+- Flyway;
+- OpenAPI;
+- AsyncAPI.
 
 ---
 
-## 16 - Observabilidade
+## 18 - Observabilidade
 
-A plataforma deve permitir rastrear uma aplicação completa entre múltiplos serviços.
+A plataforma deverá possuir:
 
-Exemplo de correlationId:
-
-```text
-correlationId=8b70f8d1-14e2-45cf-a183-f2196ef4b821
-```
-
-O correlationId deve ser propagado entre:
-
-- React;
-- API Gateway;
-- microservices;
-- Kafka;
-- RabbitMQ;
-- logs;
+- logs estruturados;
+- métricas;
 - tracing;
-- auditoria técnica.
-
-### Logs
+- dashboards;
+- health checks;
+- correlationId.
 
 Campos esperados:
 
@@ -1080,64 +1101,37 @@ duration
 error
 ```
 
-Dados sensíveis devem ser mascarados.
-
-### Métricas
-
-Métricas planejadas:
+Métricas possíveis:
 
 ```text
-requests_total
-request_duration_seconds
-errors_total
-
 active_exam_sessions
 exam_sessions_started_total
 exam_sessions_finished_total
-exam_sessions_expired_total
-
 answers_submitted_total
-answers_failed_total
-
 security_events_total
-tab_change_events_total
-multiple_login_events_total
-
 score_calculations_total
-score_calculation_failed_total
-
+performance_reports_generated_total
 ranking_updates_total
-
-messages_consumed_total
-messages_failed_total
+answer_key_access_granted_total
 messages_dlq_total
-
-auth_login_success_total
-auth_login_failed_total
 ```
-
-### Dashboards
 
 Grafana poderá exibir:
 
-- saúde dos serviços;
-- candidatos conectados;
 - sessões ativas;
-- aplicações em andamento;
-- quantidade de respostas por segundo;
+- candidatos conectados;
 - latência;
 - taxa de erro;
-- backlog Kafka;
-- backlog RabbitMQ;
-- DLQ;
+- volume de respostas;
 - eventos de segurança;
-- tempo de cálculo de notas;
-- volume de rankings processados;
-- falhas de autenticação.
+- backlog;
+- DLQ;
+- geração de relatórios;
+- atualização de ranking.
 
 ---
 
-## 17 - Tecnologias
+## 19 - Tecnologias
 
 Backend:
 
@@ -1164,7 +1158,7 @@ TanStack Query
 Zustand
 ```
 
-Dados e infraestrutura:
+Infraestrutura:
 
 ```text
 PostgreSQL
@@ -1187,146 +1181,115 @@ MDC
 Correlation ID
 ```
 
-Contratos:
-
-```text
-OpenAPI
-AsyncAPI
-```
-
 ---
 
-## 18 - Modelo de negócio
+## 20 - Modelo de negócio
 
-A plataforma será estruturada como SaaS.
+A plataforma será SaaS.
 
 ### B2C
 
-Usuários individuais poderão assinar diretamente a plataforma.
+Assinatura individual para candidatos.
 
 Possíveis recursos:
 
-- acesso a aplicações nacionais;
+- aplicações nacionais;
 - histórico;
 - ranking;
-- desempenho;
-- estatísticas;
-- comparações;
+- gabarito;
+- relatórios;
+- recomendações;
 - evolução.
 
 ### B2B
 
-Escolas, cursinhos e instituições poderão contratar pacotes por quantidade de alunos.
+Escolas, cursinhos e instituições poderão contratar por quantidade de alunos.
 
-Possíveis recursos institucionais:
+Possíveis recursos:
 
 - gestão de alunos;
 - turmas;
 - aplicações privadas;
 - ranking interno;
-- ranking nacional;
 - relatórios;
 - desempenho por turma;
-- desempenho por disciplina;
+- análise por disciplina;
 - acompanhamento de evolução;
-- integração via API;
+- API;
 - white-label futuramente.
-
-Possíveis modelos:
-
-```text
-assinatura individual
-assinatura institucional
-plano por quantidade de alunos
-plano por quantidade de aplicações
-contrato anual
-white-label
-API B2B
-```
-
-O aluno institucional deve preferencialmente consumir a licença fornecida pela própria escola, evitando cobrança duplicada.
 
 ---
 
-## 19 - Roadmap de desenvolvimento
-
-O desenvolvimento será incremental.
-
-Backend e frontend deverão evoluir por funcionalidades verticais.
-
-Ordem inicial sugerida:
+## 21 - Roadmap de desenvolvimento
 
 ```text
 1. diad-candidate-service
-2. cadastro básico no diad-web
+2. cadastro React
 
 3. diad-auth-service
-4. login no diad-web
+4. login React
 
 5. diad-exam-service
-6. listagem e detalhes de provas no diad-web
+6. listagem de provas React
 
 7. diad-application-service
-8. inscrição em prova no diad-web
+8. inscrição React
 
-9. local virtual e sala virtual
-10. cartão de confirmação no diad-web
+9. local e sala virtual
+10. cartão de confirmação React
 
 11. diad-question-service
-12. estrutura de questões
+12. estrutura da prova
 
 13. diad-answer-service
-14. tela de prova no diad-web
+14. tela de prova React
 
 15. cronômetro sincronizado pelo backend
 16. regras de início, permanência e finalização
+17. política de acesso ao gabarito
 
-17. diad-security-service
-18. eventos de integridade da sessão
+18. diad-security-service
+19. eventos de integridade
 
-19. diad-scoring-service
-20. resultado no diad-web
+20. diad-scoring-service
+21. resultado React
 
-21. diad-ranking-service
-22. ranking no diad-web
+22. diad-performance-service
+23. relatório de desempenho React
+24. recomendações e evolução
 
-23. diad-communication-service
+25. diad-ranking-service
+26. ranking React
 
-24. Kafka
-25. RabbitMQ
-26. Outbox
-27. Inbox
-28. retry e DLQ
+27. diad-communication-service
 
-29. diad-observability-starter
-30. métricas e tracing
+28. Kafka
+29. RabbitMQ
+30. Outbox
+31. Inbox
+32. retry e DLQ
 
-31. diad-api-gateway
-32. diad-config-server
+33. diad-observability-starter
+34. métricas e tracing
 
-33. diad-platform-infra
-34. Docker Compose
-35. Kubernetes
+35. diad-api-gateway
+36. diad-config-server
 
-36. testes de carga
-37. testes de concorrência
-38. hardening de segurança
-39. preparação para MVP público
+37. diad-platform-infra
+38. Docker Compose
+39. Kubernetes
+
+40. testes de carga
+41. testes de concorrência
+42. hardening de segurança
+43. preparação do MVP
 ```
-
-O primeiro caso de uso completo poderá ser uma simulação de ENEM.
-
-Depois, deverá ser implementado um segundo tipo de prova com regras significativamente diferentes.
-
-Isso servirá para validar se o motor de provas realmente está desacoplado do ENEM.
 
 ---
 
-## 20 - Status
+## 22 - Status
 
 Projeto em desenvolvimento.
-
-Status inicial:
 
 ```text
 diad-simulation-platform: criado
@@ -1336,26 +1299,7 @@ microservices: ainda não iniciados
 frontend: ainda não iniciado
 ```
 
-Próximos passos:
-
-```text
-1. finalizar documentação central
-2. criar docs/architecture.md
-3. criar docs/services.md
-4. criar docs/database.md
-5. criar docs/messaging.md
-6. criar docs/observability.md
-7. criar docs/deployment.md
-8. criar docs/security.md
-9. criar docs/exam-rules.md
-10. criar docs/business-model.md
-11. criar docs/roadmap_de_desenvolvimento.md
-12. iniciar diad-candidate-service
-```
-
----
-
-## Documentação complementar planejada
+Próximos documentos:
 
 ```text
 docs/
@@ -1371,13 +1315,9 @@ docs/
 └── roadmap_de_desenvolvimento.md
 ```
 
-Cada documento deverá aprofundar um contexto específico sem transformar o README em documentação operacional excessivamente detalhada.
-
 ---
 
 ## Princípios do projeto
-
-A plataforma deve manter os seguintes princípios ao longo da evolução:
 
 ```text
 domínio independente de framework
@@ -1385,7 +1325,7 @@ baixo acoplamento
 responsabilidade única por contexto
 contratos explícitos
 idempotência
-observabilidade desde o início
+observabilidade
 segurança por padrão
 escalabilidade horizontal
 regras configuráveis
@@ -1394,9 +1334,9 @@ frontend sem regra crítica de negócio
 evolução incremental
 ```
 
-O relógio do dispositivo do candidato nunca deve ser considerado autoridade para início ou fim de uma aplicação.
+O relógio do dispositivo do candidato não deve ser autoridade para início ou fim de uma aplicação.
 
-O backend será responsável pelo tempo oficial da sessão.
+O backend será responsável pelo tempo oficial.
 
 ```text
 serverTime
@@ -1405,7 +1345,7 @@ applicationEndsAt
 sessionExpiresAt
 ```
 
-A interface React apenas representa o tempo calculado pelo servidor.
+O frontend apenas representa o tempo calculado pelo servidor.
 
 ---
 
