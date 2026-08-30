@@ -157,6 +157,7 @@ Exemplo:
 
 ![Uploading image.png…]()
 
+
 ## 4 - Exemplo prático
 
 Imagine o seguinte cenário.
