@@ -243,30 +243,7 @@ Cada serviço deverá utilizar Ports and Adapters.
 
 O desenho básico será:
 
-```text
-             ENTRADAS
-                │
-      ┌─────────┴─────────┐
-      ▼                   ▼
-REST Controller      Message Consumer
-      │                   │
-      └─────────┬─────────┘
-                ▼
-           INPUT PORT
-                │
-                ▼
-             USE CASE
-                │
-                ▼
-              DOMAIN
-                │
-                ▼
-           OUTPUT PORT
-      ┌─────────┼─────────┐
-      ▼         ▼         ▼
- Repository   Producer   Client
- Adapter      Adapter    Adapter
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/75a316eb-b43c-44a3-b18b-5e2ea5148238" />
 
 ### 6.1 - Core
 
