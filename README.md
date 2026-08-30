@@ -1,4 +1,4 @@
-# Dia D Simulation Platform
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/af6c04ed-abe6-43e2-a0af-ee31de75313c" /><img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/fc5d5220-a6cc-48a3-87d9-41d2c92fc3c3" /># Dia D Simulation Platform
 
 ## Sumário
 
@@ -7,7 +7,7 @@
 3. [O que este produto resolve?](#3---o-que-este-produto-resolve)
 4. [Exemplo prático](#4---exemplo-prático)
 5. [Fluxo resumido](#5---fluxo-resumido)
-6. [Objetivo técnico](#6---objetivo-técnico)
+6. [Stack técnica](#6---stack-técnica)
 7. [Microservices](#7---microservices)
 8. [Bibliotecas e repositórios de apoio](#8---bibliotecas-e-repositórios-de-apoio)
 9. [Responsabilidade dos serviços](#9---responsabilidade-dos-serviços)
@@ -203,7 +203,7 @@ Eventos simples que não exigem coordenação de múltiplas etapas poderão cont
 
 ---
 
-## 6 - Objetivo técnico
+## 6 - Stack técnica
 
 Principais objetivos:
 
@@ -495,33 +495,7 @@ Responsabilidades:
 
 Exemplo:
 
-```text
-ApplicationFinished
-        |
-        v
-POST_EXAM_WORKFLOW_STARTED
-        |
-        v
-ScoreCalculated
-        |
-        v
-PerformanceReportGenerated
-        |
-        v
-RankingUpdated
-        |
-        v
-AnswerKeyAccessEvaluated
-        |
-        v
-ResultAvailable
-        |
-        v
-CommunicationRequested
-        |
-        v
-POST_EXAM_WORKFLOW_COMPLETED
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/4d4ee19c-a28c-4f00-8aa8-0f4fbfaf027a" />
 
 O serviço não deve:
 
@@ -933,12 +907,13 @@ Spring Cloud Stream
 Frontend:
 
 ```text
-React
+HTML
+CSS
+Javascript
 TypeScript
+React
+Next
 Vite
-React Router
-TanStack Query
-Zustand
 ```
 
 Infraestrutura:
@@ -961,7 +936,6 @@ Prometheus
 Grafana
 Logs estruturados
 MDC
-Correlation ID
 ```
 
 ---
@@ -1046,22 +1020,6 @@ A plataforma será SaaS, com modelos B2C e B2B.
 50. hardening de segurança
 51. preparação do MVP
 ```
-
----
-
-## 22 - Status
-
-Projeto em desenvolvimento.
-
-```text
-diad-simulation-platform: criado
-README.md: em construção
-docs/: em construção
-microservices: ainda não iniciados
-frontend: ainda não iniciado
-```
-
-As documentações específicas deverão considerar o `diad-orchestrator-service` e os workflows distribuídos coordenados por ele.
 
 ---
 
