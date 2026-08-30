@@ -128,6 +128,9 @@ evento processado novamente
 
 ## 3 - Visão arquitetural
 
+## 3.1 Visão Geral
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/fea41e8e-d95b-493a-a7e8-34820d0c5f5d" />
+
 A entrada externa da plataforma será centralizada no API Gateway.
 
 Os microservices permanecem isolados atrás dessa fronteira.
