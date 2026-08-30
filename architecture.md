@@ -221,47 +221,7 @@ O `diad-application-service` representa o centro operacional da experiência.
 
 Ele não precisa executar todas as operações, mas mantém a autoridade sobre o estado da aplicação.
 
-```text
-Candidato
-    │
-    ▼
-Inscrição
-    │
-    ▼
-REGISTERED
-    │
-    ▼
-Sala de espera
-    │
-    ▼
-WAITING
-    │
-    ▼
-Horário autorizado
-    │
-    ▼
-IN_PROGRESS
-    │
-    ├────────────► Answer Service
-    │
-    ├────────────► Security Service
-    │
-    └────────────► Controle de tempo
-    │
-    ▼
-Finalização
-    │
-    ▼
-FINISHED
-    │
-    ▼
-ApplicationFinished
-    │
-    ├────────────► Scoring
-    ├────────────► Performance
-    ├────────────► Ranking
-    └────────────► Communication
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/f6ee7953-b3cf-4466-9c1c-b04574a2295e" />
 
 A finalização deverá representar uma transição definitiva.
 
