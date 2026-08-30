@@ -189,7 +189,6 @@ Imagine o seguinte cenário.
 ## 5 - Fluxo resumido
 ![Uploading image.png…]()
 
-
 O `diad-orchestrator-service` não substitui Kafka nem os eventos de domínio.
 
 Sua função é coordenar processos distribuídos que possuem dependências entre etapas, mantendo o estado do workflow e acompanhando sua conclusão.
