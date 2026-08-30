@@ -78,47 +78,7 @@ A plataforma será composta por frontend, gateway, serviços independentes, infr
 
 ## 2.1 Visão simplificada:
 
-
-
-```text
-                  ┌──────────────────────┐
-                  │      diad-web        │
-                  │     React / TS       │
-                  └──────────┬───────────┘
-                             │
-                             ▼
-                  ┌──────────────────────┐
-                  │   diad-api-gateway   │
-                  └──────────┬───────────┘
-                             │
-          ┌──────────────────┼──────────────────┐
-          │                  │                  │
-          ▼                  ▼                  ▼
-        Auth             Candidate           Exam
-                                               │
-                                               ▼
-                                          Application
-                                          /          \
-                                         ▼            ▼
-                                     Question       Security
-                                         │
-                                         ▼
-                                       Answer
-                                         │
-                                         ▼
-                                        Kafka
-                                         │
-                                         ▼
-                                  ┌──────────────┐
-                                  │ Orchestrator │
-                                  └──────┬───────┘
-                              ┌──────────┼──────────┐
-                              ▼          ▼          ▼
-                           Scoring   Performance  Ranking
-                              └──────────┼──────────┘
-                                         ▼
-                                  Communication
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/1b641866-daf7-4980-b750-e44b4dfac909" />
 
 Essa visão não significa que toda comunicação passe obrigatoriamente pelo Orchestrator.
 
