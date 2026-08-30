@@ -170,33 +170,7 @@ A plataforma será dividida em contextos de negócio.
 
 A separação existe para reduzir acoplamento semântico entre capacidades diferentes.
 
-```text
-                    DIA D
-                      │
-       ┌──────────────┼──────────────┐
-       │              │              │
-       ▼              ▼              ▼
-  IDENTIDADE       APLICAÇÃO      CONTEÚDO
-       │              │              │
-   Auth           Application      Question
- Candidate           Exam
-                      │
-                      ▼
-                    Answer
-                      │
-            ┌─────────┴─────────┐
-            ▼                   ▼
-         ANÁLISE            INTEGRIDADE
-            │                   │
-         Scoring             Security
-       Performance
-         Ranking
-            │
-            ▼
-       COMUNICAÇÃO
-            │
-     Communication
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/5d5c0f1d-0aca-49d7-b556-b3431798201b" />
 
 ### 4.1 - Identidade
 
