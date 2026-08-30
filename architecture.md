@@ -73,7 +73,12 @@ Sua responsabilidade é acompanhar e coordenar workflows que atravessam vários 
 
 A plataforma será composta por frontend, gateway, serviços independentes, infraestrutura de mensageria, cache, persistência e componentes de observabilidade.
 
-Visão simplificada:
+## 2.1 Visão Geral totalmente amplificada:
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/93d24172-763a-43d6-8abd-f7ea84a55e3e" />
+
+## 2.1 Visão simplificada:
+
+
 
 ```text
                   ┌──────────────────────┐
