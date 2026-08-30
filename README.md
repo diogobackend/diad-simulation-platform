@@ -85,7 +85,7 @@ Provas institucionais
 | `diad-performance-service` | Relatórios de desempenho, evolução e recomendações |
 | `diad-ranking-service` | Rankings e classificações |
 | `diad-security-service` | Eventos de segurança e integridade da sessão |
-| `diad-communication-service` | E-mail, notificações, lembretes, retry e DLQ |
+| `diad-communication-service` | E-mail, Whatsapp, notificações, lembretes, retry e DLQ |
 | `diad-config-server` | Configuração centralizada |
 | `diad-shared-contracts` | OpenAPI, AsyncAPI e schemas de eventos |
 | `diad-observability-starter` | Logs, tracing, correlationId e métricas |
