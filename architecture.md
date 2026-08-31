@@ -239,14 +239,8 @@ Workflow com múltiplas etapas dependentes
 O objetivo é evitar dois extremos:
 
 ```text
-tudo centralizado no Orchestrator
+tudo centralizado no Orchestrator e uma cadeia de eventos impossível de acompanhar
 ```
-e
-
-```text
-uma cadeia de eventos impossível de acompanhar
-```
-
 ---
 
 ## 7 - Fluxo pós-prova orquestrado
