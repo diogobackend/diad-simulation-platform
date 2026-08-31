@@ -356,25 +356,7 @@ core/
 
 Fluxo interno:
 
-```text
-ApplicationFinished Consumer
-            │
-            ▼
-       INPUT PORT
-            │
-            ▼
-      StartWorkflow
-            │
-            ▼
-        Workflow
-            │
-            ├── persistir estado
-            │
-            └── publicar próxima ação
-                    │
-                    ▼
-              OUTPUT PORT
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/e1197f47-cdfa-4879-91c0-bf1266adbd85" />
 
 Exemplo de estado:
 
