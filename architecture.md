@@ -984,21 +984,7 @@ A arquitetura deverá permitir acompanhar uma operação entre vários serviços
 
 Exemplo:
 
-```text
-Frontend
-   │
-Gateway
-   │
-Application
-   │
-Kafka
-   │
-Orchestrator
-   │
-Scoring
-   │
-Performance
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/c093a58c-3579-46bf-8992-c274d567efd8" />
 
 Todos devem preservar contexto de rastreamento.
 
