@@ -472,25 +472,7 @@ SendResultNotificationRequested
 ```
 
 Fluxo:
-
-```text
-EVENTO
-ApplicationFinished
-        │
-        ▼
-Orchestrator
-        │
-        ▼
-COMANDO
-CalculateScoreRequested
-        │
-        ▼
-Scoring Service
-        │
-        ▼
-EVENTO
-ScoreCalculated
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/c4c9a9af-5c41-482c-81d1-f86eaed00b23" />
 
 Essa distinção deve permanecer explícita nos contratos.
 
