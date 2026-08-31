@@ -1136,22 +1136,7 @@ OpenTelemetry
 ```
 
 Visão:
-
-```text
-                   Kubernetes
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-   Microservices     Brokers        Data
-        │              │              │
-        │          Kafka/Rabbit     DB/Redis
-        │
-        ▼
- OpenTelemetry
-        │
-        ├── Prometheus
-        └── Grafana
-```
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/1f34564d-616e-4dc6-8f72-fe92d0414bce" />
 
 ---
 
