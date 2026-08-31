@@ -259,17 +259,8 @@ Se etapas puderem ocorrer em paralelo futuramente, o workflow poderá possuir ra
 
 Exemplo:
 
-```text
-                 ScoreCalculated
-                       │
-             ┌─────────┴─────────┐
-             ▼                   ▼
-        Performance           Ranking
-             │                   │
-             └─────────┬─────────┘
-                       ▼
-                ResultAvailable
-```
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/34fe2d04-bc08-4e21-97b5-334e6ec5c788" />
+
 
 A estratégia exata poderá evoluir sem alterar a responsabilidade dos serviços.
 
@@ -311,29 +302,7 @@ src/main/kotlin/com/diadsimulation/{service}/
 
 Fluxo interno:
 
-```text
-ENTRADAS
-   │
-   ├── REST Controller
-   └── Message Consumer
-           │
-           ▼
-       INPUT PORT
-           │
-           ▼
-        USE CASE
-           │
-           ▼
-         DOMAIN
-           │
-           ▼
-       OUTPUT PORT
-           │
-     ┌─────┼─────────┐
-     ▼     ▼         ▼
-Repository Producer Client
- Adapter    Adapter   Adapter
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/3583842c-087e-4f25-b267-1cabe422c1a4" />
 
 O domínio não deve conhecer:
 
