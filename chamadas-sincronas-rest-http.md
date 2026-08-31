@@ -1117,16 +1117,27 @@ Frontend
   Código                        Uso
   ----------------------------- ---------------------------------------------
   `200 OK`                      Consulta ou operação concluída
+  
   `201 Created`                 Recurso criado
+  
   `202 Accepted`                Processamento assíncrono ainda em andamento
+  
   `204 No Content`              Operação concluída sem body
+  
   `400 Bad Request`             Request malformado
+  
   `401 Unauthorized`            Usuário não autenticado
+  
   `403 Forbidden`               Usuário sem permissão
+  
   `404 Not Found`               Recurso inexistente
+  
   `409 Conflict`                Conflito de estado ou duplicidade
+  
   `422 Unprocessable Entity`    Violação de regra ou validação
+  
   `500 Internal Server Error`   Falha interna
+  
   `503 Service Unavailable`     Dependência indisponível
 
 ------------------------------------------------------------------------
