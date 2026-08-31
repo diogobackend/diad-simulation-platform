@@ -390,7 +390,7 @@ CANCELLED
 
 ## 10 - Comunicação síncrona
 
-REST será utilizado quando o cliente precisa de resposta imediata.
+REST será utilizado quando o cliente precisa de resposta imediata, usaremos chamadas HTTP e seu status Code/verbo adequado para tal situação
 
 Exemplo:
 
@@ -430,32 +430,7 @@ Chamadas síncronas entre microservices devem ser utilizadas somente quando a op
 
 Kafka será utilizado principalmente para eventos de domínio e integração assíncrona.
 
-```text
-Service
-   │
-   ▼
-Outbox
-   │
-   ▼
-Kafka
-   │
-   ├── Consumer A
-   ├── Consumer B
-   └── Orchestrator
-```
-
-RabbitMQ será utilizado principalmente para filas de trabalho.
-
-```text
-Communication Service
-        │
-        ▼
-     RabbitMQ
-        │
-        ├── Email Worker
-        ├── WhatsApp Worker
-        └── Retry / DLQ
-```
+![Uploading image.png…]()
 
 Separação conceitual:
 
