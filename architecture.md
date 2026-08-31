@@ -224,19 +224,7 @@ Nenhum serviço central controla todo o fluxo.
 
 Utilizada quando existe uma sequência de negócio que precisa ser acompanhada.
 
-```text
-              Orchestrator
-                   │
-             comando/solicitação
-                   ▼
-                Service
-                   │
-                  evento
-                   ▼
-              Orchestrator
-                   │
-             próxima etapa
-```
+<img width="1149" height="1369" alt="image" src="https://github.com/user-attachments/assets/ca1d7a95-4f81-498f-911a-e3f6304e297f" />
 
 Critério:
 
@@ -253,7 +241,6 @@ O objetivo é evitar dois extremos:
 ```text
 tudo centralizado no Orchestrator
 ```
-
 e
 
 ```text
