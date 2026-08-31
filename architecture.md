@@ -854,18 +854,7 @@ O estado necessário para recuperação do Orchestrator deverá possuir persist�
 
 O fluxo externo será:
 
-```text
-Client
-   │ JWT
-   ▼
-API Gateway
-   │
-   ├── valida token
-   ├── rate limit
-   ├── CORS
-   ├── correlationId
-   └── roteamento
-```
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/d8936359-7db1-4a01-af7b-57150eff49e5" />
 
 O Gateway é uma fronteira técnica.
 
