@@ -251,34 +251,7 @@ O principal workflow inicialmente coordenado será o pós-prova.
 
 Visão por serviços:
 
-```text
-Application Service
-       │
-       │ ApplicationFinished
-       ▼
-      Kafka
-       │
-       ▼
-Orchestrator Service
-       │
-       ├──► Scoring Service
-       │       │
-       │       └── ScoreCalculated
-       │
-       ├──► Performance Service
-       │       │
-       │       └── PerformanceReportGenerated
-       │
-       ├──► Ranking Service
-       │       │
-       │       └── RankingUpdated
-       │
-       ├──► Application Service
-       │       │
-       │       └── AnswerKeyAccessEvaluated
-       │
-       └──► Communication Service
-```
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/444fd795-2aba-4820-9f06-3cf3efdeedee" />
 
 O Orchestrator deve avançar somente após receber a confirmação esperada da etapa anterior quando houver dependência entre elas.
 
