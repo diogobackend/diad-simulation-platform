@@ -430,7 +430,7 @@ Chamadas síncronas entre microservices devem ser utilizadas somente quando a op
 
 Kafka será utilizado principalmente para eventos de domínio e integração assíncrona.
 
-![Uploading image.png…]()
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/76635a23-210c-4941-8a80-1e3d7838dc9c" />
 
 Separação conceitual:
 
