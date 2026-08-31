@@ -21,7 +21,6 @@
 19. [Tecnologias](#19---tecnologias)
 20. [Modelo de negócio](#20---modelo-de-negócio)
 21. [Roadmap de desenvolvimento](#21---roadmap-de-desenvolvimento)
-22. [Status](#22---status)
 
 ---
 
