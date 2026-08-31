@@ -247,33 +247,7 @@ tudo centralizado no Orchestrator e uma cadeia de eventos impossível de acompan
 
 O principal workflow inicialmente coordenado será o pós-prova.
 
-```text
-ApplicationFinished
-        │
-        ▼
-POST_EXAM_WORKFLOW_STARTED
-        │
-        ▼
-ScoreCalculated
-        │
-        ▼
-PerformanceReportGenerated
-        │
-        ▼
-RankingUpdated
-        │
-        ▼
-AnswerKeyAccessEvaluated
-        │
-        ▼
-ResultAvailable
-        │
-        ▼
-CommunicationRequested
-        │
-        ▼
-POST_EXAM_WORKFLOW_COMPLETED
-```
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/e0b7e2a5-d4b2-4c35-8e29-1406452cd4ff" />
 
 Visão por serviços:
 
