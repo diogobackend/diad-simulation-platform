@@ -1280,21 +1280,7 @@ para armazenar o estado durável dos workflows.
 
 O primeiro processo distribuído explicitamente orquestrado será o fluxo pós-prova:
 
-```text
-ApplicationFinished
-        ↓
-Scoring
-        ↓
-Performance
-        ↓
-Ranking
-        ↓
-AnswerKeyAccess
-        ↓
-ResultAvailable
-        ↓
-Communication
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/fcb0130d-5be7-4c7f-9dd8-8447e8ad4613" />
 
 ### ADR-015 — Rastreabilidade de workflows
 
@@ -1334,17 +1320,8 @@ Microservices de domínio
 
 O fluxo distribuído deve permanecer observável, recuperável e idempotente.
 
-```text
-Evento
-   ↓
-Workflow
-   ↓
-Serviço de domínio
-   ↓
-Resultado
-   ↓
-Próxima etapa
-```
+<img width="1086" height="1448" alt="image" src="https://github.com/user-attachments/assets/c3fed964-18a6-4ab6-aab2-524eda519a09" />
+
 
 O objetivo não é centralizar a plataforma no Orchestrator.
 
