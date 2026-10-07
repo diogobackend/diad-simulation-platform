@@ -245,7 +245,7 @@ Principais objetivos:
 
 | Serviço | Responsabilidade |
 |---|---|
-| `diad-auth-service` | Autenticação e autorização |
+| [diad-auth-service](https://github.com/diogobackend/dia-d-auth-service) | Autenticação e autorização |
 | `diad-api-gateway` | Entrada técnica e roteamento |
 | `diad-candidate-service` | Cadastro e perfil do candidato |
 | `diad-exam-service` | Estrutura e políticas das provas |
@@ -275,7 +275,7 @@ Principais objetivos:
 
 ## 9 - Responsabilidade dos serviços
 
-### diad-auth-service
+[diad-auth-service](https://github.com/diogobackend/dia-d-auth-service)
 
 Responsável por:
 
