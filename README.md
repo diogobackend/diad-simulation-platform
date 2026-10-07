@@ -752,7 +752,7 @@ database per service
 
 | Serviço | Banco |
 |---|---|
-| `diad-auth-service` | `auth_db` |
+| [diad-auth-service](https://github.com/diogobackend/dia-d-auth-service) | `auth_db` |
 | `diad-candidate-service` | `candidate_db` |
 | `diad-exam-service` | `exam_db` |
 | `diad-question-service` | `question_db` |
