@@ -71,7 +71,7 @@ Provas institucionais
 
 | Repositório | Responsabilidade |
 |---|---|
-| `diad-auth-service` | Login, autenticação, JWT, refresh token, roles e permissões |
+| [diad-auth-service](https://github.com/diogobackend/dia-d-auth-service) | Login, autenticação, JWT, refresh token, roles e permissões |
 | `diad-api-gateway` | Entrada única, roteamento, segurança e filtros técnicos |
 | `diad-candidate-service` | Cadastro, perfil e dados do candidato |
 | `diad-exam-service` | Tipos de prova, edições, estruturas e políticas |
@@ -159,7 +159,7 @@ Exemplo:
 Imagine o seguinte cenário.
 
 1. Diogo cria uma conta.
-2. O `diad-auth-service` autentica o usuário.
+2. O [diad-auth-service](https://github.com/diogobackend/dia-d-auth-service) autentica o usuário.
 3. O `diad-candidate-service` mantém seu perfil.
 4. Diogo escolhe uma aplicação disponível.
 5. O `diad-exam-service` fornece a estrutura e as regras da prova.
